@@ -1,24 +1,24 @@
 -- debug.lua
 --
--- Shows how to use the DAP plugin to debug your code.
+-- Mostra como usar um plugin DAP para debugar seu código
 --
--- Primarily focused on configuring the debugger for Go, but can
--- be extended to other languages as well. That's why it's called
--- kickstart.nvim and not kitchen-sink.nvim ;)
+-- Principalmente focado em configurar o debugger para Go, mas pode ser
+-- extendido para outras linguagens também. Por isso que chamamos de
+-- kickstart-pt-br.nvim e não quer-um-marido.nvim ;)
 
 return {
-  -- NOTE: Yes, you can install new plugins here!
+  -- NOTE: Sim, você também pode instalar novos plugins aqui!
   'mfussenegger/nvim-dap',
-  -- NOTE: And you can specify dependencies as well
+  -- NOTE: E você pode especificar dependencias também
   dependencies = {
-    -- Creates a beautiful debugger UI
+    -- Cria uma interface maravilhosa
     'rcarriga/nvim-dap-ui',
 
-    -- Installs the debug adapters for you
+    -- Instale os debug adapters para você
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
 
-    -- Add your own debuggers here
+    -- Adicione seus próprios debugger aqui
     'leoluz/nvim-dap-go',
   },
   config = function()
@@ -26,23 +26,23 @@ return {
     local dapui = require 'dapui'
 
     require('mason-nvim-dap').setup {
-      -- Makes a best effort to setup the various debuggers with
-      -- reasonable debug configurations
+      -- Faça o seu melhor para ajeitar os vários 
+      -- debuggers com uma configuração boa
       automatic_setup = true,
 
-      -- You can provide additional configuration to the handlers,
-      -- see mason-nvim-dap README for more information
+      -- Você pode fornecer configuração adicional para os handlers,
+      -- veja o README mason-nvim-dap para mais informações
       handlers = {},
 
-      -- You'll need to check that you have the required things installed
-      -- online, please don't ask me how to install them :)
+      -- Você irá precisar ver o que você tem que precisa instalar online
+      -- por favor, não me pergunte como instala-los :)
       ensure_installed = {
-        -- Update this to ensure that you have the debuggers for the langs you want
+        -- Atualize para garantir que você tem os debuggers para as linguagens que você quer
         'delve',
       },
     }
 
-    -- Basic debugging keymaps, feel free to change to your liking!
+    -- Mapeamento de téclas báscio para debugging, sinta-se livre para mudar para o que você gosta!
     vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
     vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
     vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
@@ -52,12 +52,12 @@ return {
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
     end, { desc = 'Debug: Set Breakpoint' })
 
-    -- Dap UI setup
-    -- For more information, see |:help nvim-dap-ui|
+    -- Passo à passo Dap UI
+    -- Para mais informações veja |:help nvim-dap-ui|
     dapui.setup {
-      -- Set icons to characters that are more likely to work in every terminal.
-      --    Feel free to remove or use ones that you like more! :)
-      --    Don't feel like these are good choices.
+      -- Coloque ícones para caracteres que são mais prováveis de funcionar em qualquer terminal.
+      --    Sinta-se livre para remover ou usar os que você mais gosta :)
+      --    Não sinta-se como se fossem boas escolhas.
       icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
       controls = {
         icons = {
@@ -74,14 +74,14 @@ return {
       },
     }
 
-    -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
+    -- Habilite para ver o resultado da última sessão. Sem isso, você não pode ver o output em caso de uma unhandled exeption(erro).
     vim.keymap.set('n', '<F7>', dapui.toggle, { desc = 'Debug: See last session result.' })
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
-    -- Install golang specific config
+    -- Instale a configuração específica para golang
     require('dap-go').setup()
   end,
 }
