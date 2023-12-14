@@ -1,34 +1,34 @@
-# kickstart.nvim
+# kickstart-pt-br.nvim
 
-https://github.com/kdheepak/kickstart.nvim/assets/1813121/f3ff9a2b-c31f-44df-a4fa-8a0d7b17cf7b
+https://github.com/kdheepak/kickstart-pt-br.nvim/assets/1813121/f3ff9a2b-c31f-44df-a4fa-8a0d7b17cf7b
 
-### Introduction
+### Introdução
 
-A starting point for Neovim that is:
+Um ponto de partida para o neovim:
 
-* Small
-* Single-file (with examples of moving to multi-file)
-* Documented
+* Pequeno
+* Arquivos únicos (com exemplos para tornar-se multi-arquivos)
+* Documentado
 * Modular
 
-This repo is meant to be used by **YOU** to begin your Neovim journey; remove the things you don't use and add what you miss.
+Este repositório é para ser usado por **VOCÊ** para começar sua jornada no neovim; remova coisas que você não usa e adicione o que sente falta
 
-Kickstart.nvim targets *only* the latest ['stable'](https://github.com/neovim/neovim/releases/tag/stable) and latest ['nightly'](https://github.com/neovim/neovim/releases/tag/nightly) of Neovim. If you are experiencing issues, please make sure you have the latest versions.
+kickstart-pt-br.nvim é referente *somente* a ultima versão ['estável'](https://github.com/neovim/neovim/releases/tag/stable) e a última ['nightly'](https://github.com/neovim/neovim/releases/tag/nightly) do Neovim. Se voê tem algum problema, por favor certifique-se de usar as últimas versões.
 
-Distribution Alternatives:
-- [LazyVim](https://www.lazyvim.org/): A delightful distribution maintained by @folke (the author of lazy.nvim, the package manager used here)
+Alternativas de Distribuição:
+- [LazyVim](https://www.lazyvim.org/): Uma incrível distribuição mantida pelo @folke (o autor do lazy.nvim, o gerenciador de pacotes usado aqui)
 
-### Installation
+### Instação
 
-> **NOTE** 
-> [Backup](#FAQ) your previous configuration (if any exists)
+> **NOTAS** 
+> [Backup](#FAQ) das suas configurações anteriores (se existiriem)
 
-Requirements:
-* Make sure to review the readmes of the plugins if you are experiencing errors. In particular:
-  * [ripgrep](https://github.com/BurntSushi/ripgrep#installation) is required for multiple [telescope](https://github.com/nvim-telescope/telescope.nvim#suggested-dependencies) pickers.
-* See [Windows Installation](#Windows-Installation) if you have trouble with `telescope-fzf-native`
+Requisitos:
+* Certifique-se de revisar os readmes dos plugins que você está tendo erros. Principalmente:
+  * [ripgrep](https://github.com/BurntSushi/ripgrep#installation) é necessário para muitos [telescope](https://github.com/nvim-telescope/telescope.nvim#suggested-dependencies) pickers.
+* Veja [Instalação no Windows](#Instalação-no-Windows) se você tem problemas com `telescope-fzf-native`
 
-Neovim's configurations are located under the following paths, depending on your OS:
+As configurações do Neovim estão localizadas dentro dos seguintes caminhos, dependendo do seu sistema operacional:
 
 | OS | PATH |
 | :- | :--- |
@@ -37,72 +37,73 @@ Neovim's configurations are located under the following paths, depending on your
 | Windows (cmd)| `%userprofile%\AppData\Local\nvim\` |
 | Windows (powershell)| `$env:USERPROFILE\AppData\Local\nvim\` |
 
-Clone kickstart.nvim:
+Clone o kickstart-pt-br.nvim:
 
-- on Linux and Mac
+- no Linux e Mac
 ```sh
-git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+git clone https://github.com/nvim-lua/kickstart-pt-br.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 
-- on Windows (cmd)
+- no Windows (cmd)
 ```
-git clone https://github.com/nvim-lua/kickstart.nvim.git %userprofile%\AppData\Local\nvim\ 
-```
-
-- on Windows (powershell)
-```
-git clone https://github.com/nvim-lua/kickstart.nvim.git $env:USERPROFILE\AppData\Local\nvim\ 
+git clone https://github.com/nvim-lua/kickstart-pt-br.nvim.git %userprofile%\AppData\Local\nvim\ 
 ```
 
+- no Windows (powershell)
+```
+git clone https://github.com/nvim-lua/kickstart-pt-br.nvim.git $env:USERPROFILE\AppData\Local\nvim\ 
+```
 
-### Post Installation
 
-Start Neovim
+### Pós-Instalação
+
+Inicie o Neovim
 
 ```sh
 nvim
 ```
 
-The `Lazy` plugin manager will start automatically on the first run and install the configured plugins - as can be seen in the introduction video. After the installation is complete you can press `q` to close the `Lazy` UI and **you are ready to go**! Next time you run nvim `Lazy` will no longer show up.
+O gerenciador de plugins `Lazy` irá inciar automaticamente quando rodar pela primeira vez e instalar os plugins configurados - como pode ser visto no vídeo de introdução. Depois da instação estar complete você pode pressionar `q` para fechar a interface do `Lazy` e **você já pode brincar**! Na próxima vez que você rodar o nvim `Lazy` não irá mais aparecer.
 
-If you would prefer to hide this step and run the plugin sync from the command line, you can use:
+Se você preferir não fazer dessa forma, você pode rodar a sincronização dos plugins por linha de comando, você pode usar:
 
 ```sh
 nvim --headless "+Lazy! sync" +qa
 ```
 
-### Recommended Steps
+### Passos Recomendados
 
-[Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repo (so that you have your own copy that you can modify) and then installing you can install to your machine using the methods above.
+[Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) este repositório (para que você tenha sua própria cópia que possa modificar) e instale.
+Você pode instalar na sua máquina utilizando os métodos acima.
 
 > **NOTE**  
-> Your fork's url will be something like this: `https://github.com/<your_github_username>/kickstart.nvim.git`
+> A url do seu fork irá ser algo assim: `https://github.com/<your_github_username>/kickstart-pt-br.nvim.git`
 
-### Configuration And Extension
+### Configuração e Extensão
 
-* Inside of your copy, feel free to modify any file you like! It's your copy!
-* Feel free to change any of the default options in `init.lua` to better suit your needs.
-* For adding plugins, there are 3 primary options:
-  * Add new configuration in `lua/custom/plugins/*` files, which will be auto sourced using `lazy.nvim` (uncomment the line importing the `custom/plugins` directory in the `init.lua` file to enable this)
-  * Modify `init.lua` with additional plugins.
-  * Include the `lua/kickstart/plugins/*` files in your configuration.
+* Dentro da sua cópia, sinta-se livre para modificar qualquer arquivo que você goste! É a SUA cópia!
+* Sinta-se livre para mudar qualquer opção padrão em `init.lua` para melhor atender suas necessidades.
+* Para adicionar mais plugins, há 3 opção principais:
+  * Adicionar novas configurações nos arquivos em `lua/custom/plugins/*`, que irá ser procurados automaticamente usando o `lazy.nvim` (descomente a linha importando o diretório `custom/plugins` no arquivo `init.lua` para habilitar isso)
+  * Modifique `init.lua` com plugins adicionais.
+  * Inclua os arquivos de `lua/kickstart/plugins/*` na sua configuração.
 
-You can also merge updates/changes from the repo back into your fork, to keep up-to-date with any changes for the default configuration.
+Você também pode mergear mudanças e atualizações deste repositório em seu fork, para manter-se atualizado com qualquer mudança na configuração padrão.
 
-#### Example: Adding an autopairs plugin
+#### Example: Adicionando o plugin autopairs
 
-In the file: `lua/custom/plugins/autopairs.lua`, add:
+No arquivo: `lua/custom/plugins/autopairs.lua`, adicione:
 
 ```lua
--- File: lua/custom/plugins/autopairs.lua
+-- Arquivo: lua/custom/plugins/autopairs.lua
 
 return {
   "windwp/nvim-autopairs",
-  -- Optional dependency
+  -- Dependencia opcional
   dependencies = { 'hrsh7th/nvim-cmp' },
   config = function()
     require("nvim-autopairs").setup {}
-    -- If you want to automatically add `(` after selecting a function or method
+    -- Se você que automaticamente adicionar `(` depois de selecionar a função ou método
     local cmp_autopairs = require('nvim-autopairs.completion.cmp')
     local cmp = require('cmp')
     cmp.event:on(
@@ -114,14 +115,14 @@ return {
 ```
 
 
-This will automatically install [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs) and enable it on startup. For more information, see documentation for [lazy.nvim](https://github.com/folke/lazy.nvim).
+Isso irá automaticamente instalar [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs) e habilita-lo quando iniciar. Para mais informações, veja a documentação [lazy.nvim](https://github.com/folke/lazy.nvim).
 
-#### Example: Adding a file tree plugin
+#### Exemplo: Adicionando um plugin de arquivos em árvore
 
-In the file: `lua/custom/plugins/filetree.lua`, add:
+No arquivo: `lua/custom/plugins/filetree.lua`, adicione:
 
 ```lua
--- Unless you are still migrating, remove the deprecated commands from v1.x
+-- A menos que você ainda está migrando, remova os comandos depreciados da v1.x
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
 return {
@@ -129,7 +130,7 @@ return {
   version = "*",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+    "nvim-tree/nvim-web-devicons", -- não obrigatório, mas recomendado
     "MunifTanjim/nui.nvim",
   },
   config = function ()
@@ -138,54 +139,53 @@ return {
 }
 ```
 
-This will install the tree plugin and add the command `:Neotree` for you. You can explore the documentation at [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) for more information.
+Isso irá instalar o plugin de árvore e adicionar o comando `:Neotree` para você. A documentação pode ser explorada em [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) para mais informações.
 
-### Contribution
+### Contribuição
 
-Pull-requests are welcome. The goal of this repo is not to create a Neovim configuration framework, but to offer a starting template that shows, by example, available features in Neovim. Some things that will not be included:
+Pull-requests são bem vindos. O objetivo desse repositório não é criar um framework de configuração para o Neovim, mas oferecer um template para para começar que, por exemplo, mostre as funcionalidades no Neovim. Algumas coisas que não serão incluídas:
 
-* Custom language server configuration (null-ls templates)
-* Theming beyond a default colorscheme necessary for LSP highlight groups
+* Configuração customizada do language server (null-ls templates)
+* Temas além do colorschema necessário para LSP highlight groups
 
-Each PR, especially those which increase the line count, should have a description as to why the PR is necessary.
+Cada PR, especialmente aqueles que aumentam a quantidade de linhas, deve ter a descrição do por que o PR é necessário.
 
 ### FAQ
 
-* What should I do if I already have a pre-existing neovim configuration?
-  * You should back it up, then delete all files associated with it.
-  * This includes your existing init.lua and the neovim files in `~/.local` which can be deleted with `rm -rf ~/.local/share/nvim/`
-  * You may also want to look at the [migration guide for lazy.nvim](https://github.com/folke/lazy.nvim#-migration-guide)
-* Can I keep my existing configuration in parallel to kickstart?
-  * Yes! You can use [NVIM_APPNAME](https://neovim.io/doc/user/starting.html#%24NVIM_APPNAME)`=nvim-NAME` to maintain multiple configurations. For example you can install the kickstart configuration in `~/.config/nvim-kickstart` and create an alias:
+* O que eu deveria fazer se eu já tenho uma configuração existente do neovim?
+  * Você deve fazer um backup e então deletar todos os arquivos ligados a configuração.
+   * Isso inclui seu init.lua e os arquivos do neovim em `~/.local` que podem ser deletados com `rm -rf ~/.local/share/nvim/`
+  * Você pode quer olhar em [migration guide for lazy.nvim](https://github.com/folke/lazy.nvim#-migration-guide)
+* Posso manter minha configuração existente em paralelo com o kickstart?
+  * Sim! Você pode usar [NVIM_APPNAME](https://neovim.io/doc/user/starting.html#%24NVIM_APPNAME)`=nvim-NAME` para manter múltiplas configurações. Por exemplo você pode instalar a configuração do kickstart em `~/.config/nvim-kickstart` e criar um alias:
     ```
     alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
     ```
-    When you run Neovim using `nvim-kickstart` alias it will use the alternative config directory and the matching local directory `~/.local/share/nvim-kickstart`. You can apply this approach to any Neovim distribution that you would like to try out.
-* What if I want to "uninstall" this configuration:
-  * See [lazy.nvim uninstall](https://github.com/folke/lazy.nvim#-uninstalling) information
-* Are there any cool videos about this plugin?
-  * Current iteration of kickstart (coming soon)
-  * Here is one about the previous iteration of kickstart: [video introduction to Kickstart.nvim](https://youtu.be/stqUbv-5u2s). Note the install via init.lua no longer works as specified. Please follow the install instructions in this file instead as they're up to date.
-* Why is the kickstart `init.lua` a single file? Wouldn't it make sense to split it into multiple files?
-  * The main purpose of kickstart is to serve as a teaching tool and a reference
-    configuration that someone can easily `git clone` as a basis for their own.
-    As you progress in learning Neovim and Lua, you might consider splitting `init.lua`
-    into smaller parts. A fork of kickstart that does this while maintaining the exact
-    same functionality is available here:
+    Quando você roda o Neovim usando o alias`nvim-kickstart` irá usar o diretório de configurações alternativas e o diretório local `~/.local/share/nvim-kickstart`. Você pode aplicar essa abordagem par aqualquer distribuição Neovim que você gostaria de tentar.
+* E se eu quiser "desinstalar" essa configuração:
+  * Veja [lazy.nvim uninstall](https://github.com/folke/lazy.nvim#-uninstalling)
+* Há algum vídeo legal sobre este plugin?
+  * Atual interação do kickstart (em breve)
+  * Aqui há uma interação antiga do kickstart(em inglês): [vídeo de introdução do kickstart-pt-br.nvim](https://youtu.be/stqUbv-5u2s). Note que intalar via init.lua não funciona como foi dito. Por favor siga os passos neste arquivo em vez disso, porque estão atualizadas.
+* Por que o kickstart `init.lua` é um arquivo único? Não faria mais sentido dividir em múltiplos arquivos?
+  * O propósito principal do kickstart é servir como uma ferramente de aprendizado e referência
+    de configuração que alguém pode simplesmente fazer um `git clone` como base para a sua própria.
+    Enquanto você progride aprendendo Neovim e Lua você pode considerar dividir seu `init.lua`
+    em partes menores. Um fork do kickstart pode ser feito mantendo a exata funcionalidade em:
     * [kickstart-modular.nvim](https://github.com/dam9000/kickstart-modular.nvim)
-  * Discussions on this topic can be found here:
-    * [Restructure the configuration](https://github.com/nvim-lua/kickstart.nvim/issues/218)
-    * [Reorganize init.lua into a multi-file setup](https://github.com/nvim-lua/kickstart.nvim/pull/473)
+  * Discussões sobre esse tópico podem ser encontradas em:
+    * [Reestruture a configuração](https://github.com/nvim-lua/kickstart.nvim/issues/218)
+    * [Reorganize init.lua em um passo à passo multi-arquivos](https://github.com/nvim-lua/kickstart.nvim/pull/473)
 
-### Windows Installation
+### Instalação no Windows
 
-Installation may require installing build tools, and updating the run command for `telescope-fzf-native`
+A instalação pode precisar de ferramentas de build, e atualizar o comando para rodar para `telescope-fzf-native`
 
-See `telescope-fzf-native` documentation for [more details](https://github.com/nvim-telescope/telescope-fzf-native.nvim#installation)
+Veja a documentação `telescope-fzf-native` para [mais detalhes](https://github.com/nvim-telescope/telescope-fzf-native.nvim#installation)
 
-This requires:
+È necessário:
 
-- Install CMake, and the Microsoft C++ Build Tools on Windows
+- Instalar o CMake, e o Microsoft C++ Build Tools no Windows
 
 ```lua
 {'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
