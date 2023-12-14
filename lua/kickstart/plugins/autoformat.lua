@@ -1,22 +1,22 @@
 -- autoformat.lua
 --
--- Use your language server to automatically format your code on save.
--- Adds additional commands as well to manage the behavior
+-- Use seu language server para formatar automaticamente seu código ao salvar.
+-- Também use comandos adicionais para lidar com esse comportamento
 
 return {
   'neovim/nvim-lspconfig',
   config = function()
-    -- Switch for controlling whether you want autoformatting.
-    --  Use :KickstartFormatToggle to toggle autoformatting on or off
+    -- Troque para controlar o que você quiser quando quiser autoformatar.
+    --  Use :KickstartFormatToggle para habilitar ou desabilitar a autoformatação
     local format_is_enabled = true
     vim.api.nvim_create_user_command('KickstartFormatToggle', function()
       format_is_enabled = not format_is_enabled
       print('Setting autoformatting to: ' .. tostring(format_is_enabled))
     end, {})
 
-    -- Create an augroup that is used for managing our formatting autocmds.
-    --      We need one augroup per client to make sure that multiple clients
-    --      can attach to the same buffer without interfering with each other.
+    -- Crie um augroup para gerenciar sua automação 'autocmds' de formatação.
+    --      Precisamos de pelo menos um augroup por cliente para termos certeza que
+    --      multiplos clientes podem anexar ao mesmo buffer sem interferirem entre si
     local _augroups = {}
     local get_augroup = function(client)
       if not _augroups[client.id] then
@@ -28,30 +28,30 @@ return {
       return _augroups[client.id]
     end
 
-    -- Whenever an LSP attaches to a buffer, we will run this function.
+    -- Quando um LSP anexa ao buffer, nós iremos retornar essa função.
     --
-    -- See `:help LspAttach` for more information about this autocmd event.
+    -- Veja `:help LspAttach` para mais informações sobre o evento autocmd.
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('kickstart-lsp-attach-format', { clear = true }),
-      -- This is where we attach the autoformatting for reasonable clients
+      -- Isso é onde nós anexamos a autoformação para para clientes "razoáveis"
       callback = function(args)
         local client_id = args.data.client_id
         local client = vim.lsp.get_client_by_id(client_id)
         local bufnr = args.buf
 
-        -- Only attach to clients that support document formatting
+        -- Somente anexe aos clientes que suportam formação de documentos
         if not client.server_capabilities.documentFormattingProvider then
           return
         end
 
-        -- Tsserver usually works poorly. Sorry you work with bad languages
-        -- You can remove this line if you know what you're doing :)
+        -- Tsserver normalmente funciona mal. Sinto muito se você trabalha com linguagens ruins
+        -- Vocẽ pode remover essa linha se você sabe o que está fazendo :)
         if client.name == 'tsserver' then
           return
         end
 
-        -- Create an autocmd that will run *before* we save the buffer.
-        --  Run the formatting command for the LSP that has just attached.
+        -- Crie um autocmd que irá rodar *antes* de nós salvarmos o buffer.
+        --  Rode o comando de formatação para o LSP que anexamos.
         vim.api.nvim_create_autocmd('BufWritePre', {
           group = get_augroup(client),
           buffer = bufnr,
