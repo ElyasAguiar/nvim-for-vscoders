@@ -41,17 +41,17 @@ Clone o kickstart-pt-br.nvim:
 
 - no Linux e Mac
 ```sh
-git clone https://github.com/nvim-lua/kickstart-pt-br.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+git clone https://github.com/ElyasAguiar/nvim-for-vscoders.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 
 - no Windows (cmd)
 ```
-git clone https://github.com/nvim-lua/kickstart-pt-br.nvim.git %userprofile%\AppData\Local\nvim\ 
+git clone https://github.com/ElyasAguiar/nvim-for-vscoders.git %userprofile%\AppData\Local\nvim\ 
 ```
 
 - no Windows (powershell)
 ```
-git clone https://github.com/nvim-lua/kickstart-pt-br.nvim.git $env:USERPROFILE\AppData\Local\nvim\ 
+git clone https://github.com/ElyasAguiar/nvim-for-vscoders.git $env:USERPROFILE\AppData\Local\nvim\ 
 ```
 
 
