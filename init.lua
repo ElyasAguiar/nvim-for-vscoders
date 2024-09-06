@@ -377,6 +377,11 @@ require('telescope').setup {
                 ['<C-d>'] = false
             }
         }
+    },
+    pickers = {
+        oldfiles = {
+            cwd_only = true
+        }
     }
 }
 
